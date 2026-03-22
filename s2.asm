@@ -12080,7 +12080,7 @@ OptionScreen_Controls:
 	btst	#button_A,d0
 	beq.s	+
 	addi.b	#$10,d2
-	andi.b	#$7F,d2
+	andi.b	#$FF,d2
     else
 	; This code appears to have been carelessly created from a copy of the
 	; above block of code. It makes no sense to advance by $10 on options
@@ -12099,19 +12099,30 @@ OptionScreen_Controls:
 	move.w	d2,(a1)
 	cmpi.b	#2,(Options_menu_box).w
 	bne.s	+	; rts
-	andi.w	#button_B_mask|button_C_mask,d0
-	beq.s	+	; rts
+	btst	#button_C,d0
+	beq.s	++
 	move.w	(Sound_test_sound).w,d0
-	addi.w	#$80,d0
+;	addi.w	#$80,d0
 	jsrto	JmpTo_PlayMusic
+
+-
 	lea	(level_select_cheat).l,a0
 	lea	(continues_cheat).l,a2
 	lea	(Level_select_flag).w,a1	; Also Slow_motion_flag
 	moveq	#0,d2	; flag to tell the routine to enable the continues cheat
 	bsr.w	CheckCheats
 
-+
+/
 	rts
+; ===========================================================================
+
++
+	btst	#button_B,d0
+	beq.s	-	; rts
+	move.w	(Sound_test_sound).w,d0
+;	addi.w	#$80,d0
+	jsrto	JmpTo_PlaySound
+	bra.s	--	; cheat
 ; End of function OptionScreen_Controls
 
 ; ===========================================================================
@@ -12119,7 +12130,7 @@ OptionScreen_Controls:
 OptionScreen_Choices:
 	dc.l (3-1)<<24|(Player_option&$FFFFFF)
 	dc.l (2-1)<<24|(Two_player_items&$FFFFFF)
-	dc.l ($80-1)<<24|(Sound_test_sound&$FFFFFF)
+	dc.l ($100-1)<<24|(Sound_test_sound&$FFFFFF)
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
@@ -12521,23 +12532,25 @@ LevSelControls_CheckLR:
 	move.w	(Sound_test_sound).w,d0
 ;	addi.w	#$80,d0
 	jsrto	JmpTo_PlayMusic
+
+-
 	lea	(debug_cheat).l,a0
 	lea	(super_sonic_cheat).l,a2
 	lea	(Debug_options_flag).w,a1	; Also S1_hidden_credits_flag
 	moveq	#1,d2	; flag to tell the routine to enable the Super Sonic cheat
 	bsr.w	CheckCheats
 
-+
+/
 	rts
 ; ===========================================================================
 
 +
 	btst	#button_B,d1
-	beq.s	+	; rts
+	beq.s	-	; rts
+	move.w	(Sound_test_sound).w,d0
+;	addi.w	#$80,d0
 	jsrto	JmpTo_PlaySound
-
-+
-	rts
+	bra.s	--	; cheat
 ; ===========================================================================
 ; loc_958A:
 LevSelControls_SwitchSide:	; not in soundtest, not up/down pressed
