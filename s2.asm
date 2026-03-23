@@ -68,7 +68,7 @@ useFullWaterTables = 1
 
 ; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; Include sound driver macros and functions
-	include "Sound/Definitions.asm"
+	include "sound/Definitions.asm"
 
 ; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; Include debugger macros and functions
@@ -1425,7 +1425,7 @@ ClearScreen:
 ; Clone Driver - Functions Subroutine
 ; ---------------------------------------------------------------------------
 
-		include "Sound/Functions.asm"
+		include "sound/Functions.asm"
 
 ; ---------------------------------------------------------------------------
 ; Subroutine to pause the game
@@ -90699,7 +90699,7 @@ ArtNem_MCZGateLog:		BINCLUDE	"art/nemesis/Drawbridge logs from MCZ.nem"
 ; Flamewing sound driver subroutines
 ; ---------------------------------------------------------------------------
 
-		include "Sound/Flamedriver.asm"
+		include "sound/Flamedriver.asm"
 		even
 
 ; --------------------------------------------------------------

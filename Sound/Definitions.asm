@@ -1,3 +1,3 @@
-	include "Sound/Macros.asm"
-	include "Sound/Constants.asm"
-	include "Sound/Sound IDs.asm"
+	include "sound/Macros.asm"
+	include "sound/Constants.asm"
+	include "sound/Sound IDs.asm"
