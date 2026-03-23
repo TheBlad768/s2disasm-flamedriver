@@ -87,7 +87,7 @@ SndID_Splash				ds.b 1		; $0E
 SndID_Swish				ds.b 1		; $0F
 SndID_BossHit				ds.b 1		; $10
 SndID_InhalingBubble			ds.b 1		; $11
-SndID_ArrowFiring =				*
+SndID_ArrowFiring =			*
 SndID_LavaBall				ds.b 1		; $12
 SndID_Shield				ds.b 1		; $13
 SndID_LaserBeam				ds.b 1		; $14
