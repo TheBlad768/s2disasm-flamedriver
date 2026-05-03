@@ -1,5 +1,5 @@
 Sound4A_SpecStageEntry_Header:
-	smpsHeaderStartSong 2
+	smpsHeaderStartSong 3
 	smpsHeaderVoice     Sound4A_SpecStageEntry_Voices
 	smpsHeaderTempoSFX  $01
 	smpsHeaderChanSFX   $01
@@ -9,7 +9,7 @@ Sound4A_SpecStageEntry_Header:
 ; FM5 Data
 Sound4A_SpecStageEntry_FM5:
 	smpsSetvoice        $00
-	smpsModSet          $01, $01, $5B, $02
+	smpsModSet          $01, $01, $50, $02
 	dc.b	nEb6, $65
 	smpsStop
 
