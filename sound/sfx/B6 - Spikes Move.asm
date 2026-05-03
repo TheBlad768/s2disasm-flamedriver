@@ -4,7 +4,7 @@ Sound36_SpikesMove_Header:
 	smpsHeaderTempoSFX  $01
 	smpsHeaderChanSFX   $01
 
-	smpsHeaderSFXChannel cPSG3, Sound36_SpikesMove_PSG3,	$00, $00
+	smpsHeaderSFXChannel cPSG3, Sound36_SpikesMove_PSG3,	$00, $03
 
 ; PSG3 Data
 Sound36_SpikesMove_PSG3:
